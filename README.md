@@ -13,5 +13,9 @@ Soy estudiante de ingeniería mecatrónica deel 10mo semestre y vivo en Medellí
 Saludo a todos!!
 Mi nombre es Andrés Alejandro Zapata Gaviria, vivo en Medellín, soy tecnólogo electrónico, actualmente estoy terminando la carrera de Ingeniería.Quiero aprender a programar para integrar este conocimiento a la carrera y crecer con el equipo.
 
+Saludos a todos !!!
+Mi nombre es Darwin Alejandro Quintero Gómez, tecnologo en Electronica del ITM, actualmente estoy terminando Ingenieria Electronica y programacion de Softwatre del programa MisionTic. 
+
 Hello everyone, 
 My name is Darío, I'm glad to be part of this wonderful team.  I have the programmer role in this sprint. I enjoy a lot to learn and get new experience of learningship, I would like to become in a web programmer, and I desire to get in this stage a lot of knowledge that help me in my project of life. Blessings.
+
