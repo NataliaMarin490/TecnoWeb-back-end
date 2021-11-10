@@ -19,3 +19,6 @@ Mi nombre es Darwin Alejandro Quintero Gómez, tecnologo en Electronica del ITM,
 Hello everyone, 
 My name is Darío, I'm glad to be part of this wonderful team.  I have the programmer role in this sprint. I enjoy a lot to learn and get new experience of learningship, I would like to become in a web programmer, and I desire to get in this stage a lot of knowledge that help me in my project of life. Blessings.
 
+Juan Esteban Pamplona Mesa
+Soy estudiante de ingeniería mecatrónica, acyualmente curso el décimo semestre, me apasiona aprender sobre programación y automatización, estoy en el programa para ampliar mis habilidades y conocimientos.
+
