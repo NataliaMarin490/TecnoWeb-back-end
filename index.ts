@@ -48,7 +48,6 @@ const crearProyectoConObj = async () => {
 
   console.log("proyecto creado", proyectoCreado);
 };
-
 const consultaProyectoConObj = async () => {
   const proyecto = ProjectModel.findOne({ _id: "6193467311afd3ebff1dd311" });
 
@@ -106,7 +105,6 @@ const crearProyectoConObj2 = async () => {
 
   console.log("proyecto creado", proyectoCreado);
 };
-
 const consultarProyectoConObj2 = async () => {
   const proyecto = await ProjectModel.find({ id: "idProyecto" }).populate(
     "objetivos"
@@ -138,7 +136,6 @@ const crearProyectoConObj3 = async () => {
     ],
   });
 };
-
 const consultarProyectoConObj3 = async () => {
   const proyectoCreado = await ProjectModel.find({ id: "6193543a24c574d1cdcd8f1d" });
   console.log("proyecto", proyectoCreado);
