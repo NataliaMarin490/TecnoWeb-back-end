@@ -1,33 +1,151 @@
 import conectarBD from "./db/db";
 import { UserModel } from "./models/user";
-import { Enum_Rol, Enum_TipoObjetivo } from "./models/enums";
-import { getParsedCommandLineOfConfigFile } from "typescript";
+import {
+  Enum_EstadoUsuario,
+  Enum_Rol,
+  Enum_TipoObjetivo,
+} from "./models/enums";
 import { ProjectModel } from "./models/projects";
 import { ObjectId } from "mongoose";
 import { ObjectiveModel } from "./models/objectives";
 
-const main = async () => {
-  await conectarBD();
-
-  // const object = await ObjectiveModel.create({
-  //   descripcion: "Este es el objetivo especifico",
-  //   tipo: Enum_TipoObjetivo.especifico,
-  // });
-
-  ProjectModel.create({
-    nombre: "Proyecto 2",
-    presupuesto: 120,
-    fechaInicio: Date.now(),
-    fechaFin: new Date("2022/11/10"),
-    lider: "61931568be021e190ca4968e",
-    objetivos: ["619328dbe654a235887a91a9", "619329128b52ec8a828017d7"],
+//Metodologia one to many #1
+const crearProyectoConObj = async () => {
+  const usuarioInicial = await UserModel.create({
+    nombre: "Natalia",
+    apellido: "Marin",
+    correo: "nm@gmail.com",
+    identificacion: "1234",
+    rol: Enum_Rol.administrador,
+    estado: Enum_EstadoUsuario.autorizado,
   });
 
-  //  const proyecto: any = await ProjectModel.find({ nombre: "Proyecto 2" }).populate("lider");
-  //  console.log("El proyecto es: ", proyecto, proyecto[0].lider);
+  const proyectoCreado = await ProjectModel.create({
+    nombre: "Proyecto MINTIC 2022",
+    fechaInicio: new Date(2021 / 12 / 34),
+    fechaFin: new Date(2022 / 12 / 34),
+    presupuesto: 200000,
+    lider: usuarioInicial._id,
+  });
 
-  // const lider = await UserModel.find({ _id: proyecto[0].lider });
-  // console.log("El lider es: ", lider);
+  const objetivoGeneral = await ObjectiveModel.create({
+    descripcion: "OBJ general",
+    tipo: Enum_TipoObjetivo.general,
+    proyecto: proyectoCreado._id,
+  });
+
+  const objetivoEspecifico1 = await ObjectiveModel.create({
+    descripcion: "OBJ Especifico 1",
+    tipo: Enum_TipoObjetivo.especifico,
+    proyecto: proyectoCreado._id,
+  });
+
+  const objetivoEspecifico2 = await ObjectiveModel.create({
+    descripcion: "OBJ Especifico 2",
+    tipo: Enum_TipoObjetivo.especifico,
+    proyecto: proyectoCreado._id,
+  });
+
+  console.log("proyecto creado", proyectoCreado);
+};
+
+const consultaProyectoConObj = async () => {
+  const proyecto = ProjectModel.findOne({ _id: "6193467311afd3ebff1dd311" });
+
+  console.log("Proyecto encontrado", proyecto);
+
+  const objetivos = await ObjectiveModel.find({
+    project: "6193467311afd3ebff1dd311",
+  });
+
+  console.log("los objetivos son: ", objetivos);
+
+  const proyectoConObj = { ...proyecto, objetivos: objetivos };
+
+  console.log("el proyecto con objetivos es: ", proyectoConObj);
+};
+
+//Metodologia ONE 2 Many #2
+const crearProyectoConObj2 = async () => {
+  const usuarioInicial = await UserModel.create({
+    nombre: "Natalia",
+    apellido: "Marin",
+    correo: "nm@gmail.com",
+    identificacion: "1234",
+    rol: Enum_Rol.administrador,
+    estado: Enum_EstadoUsuario.autorizado,
+  });
+
+  const objetivoGeneral = await ObjectiveModel.create({
+    descripcion: "OBJ general",
+    tipo: Enum_TipoObjetivo.general,
+  });
+
+  const objetivoEspecifico1 = await ObjectiveModel.create({
+    descripcion: "OBJ Especifico 1",
+    tipo: Enum_TipoObjetivo.especifico,
+  });
+
+  const objetivoEspecifico2 = await ObjectiveModel.create({
+    descripcion: "OBJ Especifico 2",
+    tipo: Enum_TipoObjetivo.especifico,
+  });
+
+  const proyectoCreado = await ProjectModel.create({
+    nombre: "Proyecto MINTIC 2022",
+    fechaInicio: new Date(2021 / 12 / 34),
+    fechaFin: new Date(2022 / 12 / 34),
+    presupuesto: 200000,
+    lider: usuarioInicial._id,
+    objetivos: [
+      objetivoGeneral._id,
+      objetivoEspecifico1._id,
+      objetivoEspecifico2._id,
+    ],
+  });
+
+  console.log("proyecto creado", proyectoCreado);
+};
+
+const consultarProyectoConObj2 = async () => {
+  const proyecto = await ProjectModel.find({ id: "idProyecto" }).populate(
+    "objetivos"
+  );
+  console.log("proyecto encontrado", JSON.stringify(proyecto));
+};
+
+//Metodologia one 2 many #3
+const crearProyectoConObj3 = async () => {
+  const usuarioInicial = await UserModel.create({
+    nombre: "Natalia",
+    apellido: "Marin",
+    correo: "nm@gmail.com",
+    identificacion: "1234",
+    rol: Enum_Rol.administrador,
+    estado: Enum_EstadoUsuario.autorizado,
+  });
+
+  const proyectoCreado = await ProjectModel.create({
+    nombre: "Proyecto MINTIC 2022",
+    fechaInicio: new Date(2021 / 12 / 34),
+    fechaFin: new Date(2022 / 12 / 34),
+    presupuesto: 200000,
+    lider: usuarioInicial._id,
+    objetivos: [
+      { descripcion: "OBJ general", tipo: Enum_TipoObjetivo.general },
+      { descripcion: "OBJ especifico1", tipo: Enum_TipoObjetivo.especifico },
+      { descripcion: "OBJ especifico2", tipo: Enum_TipoObjetivo.especifico },
+    ],
+  });
+};
+
+const consultarProyectoConObj3 = async () => {
+  const proyectoCreado = await ProjectModel.find({ id: "6193543a24c574d1cdcd8f1d" });
+  console.log("proyecto", proyectoCreado);
+};
+
+const main = async () => {
+  await conectarBD();
 };
 
 main();
