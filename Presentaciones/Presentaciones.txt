@@ -7,7 +7,9 @@ Integrante 1: Natalia Andrea Marin Giraldo.
 Integrante 2:
  Hola a todos!! Mi nombre es Faiber Barragán, vivo en Medellín, soy estudiante de 4 semestre de desarrollo de software y me siento muy motivado en realizar este ciclo 4 
 
-Integrante 3: 
+Integrante 3: Darwin ALejandro Quintero Gomez.
+Soy estudiante de Ingeniería Electrónica, vivo en Medellin.
+Me gustan los temas relacionados con robotica y microcontroladores.
 
 Integrante 4: 
 
