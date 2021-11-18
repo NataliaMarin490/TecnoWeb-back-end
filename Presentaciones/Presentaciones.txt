@@ -11,10 +11,10 @@ Integrante 3: Darwin ALejandro Quintero Gomez.
 Soy estudiante de Ingeniería Electrónica, vivo en Medellin.
 Me gustan los temas relacionados con robotica y microcontroladores.
 
-Integrante 4:Juan Esteban Pamplona Mesa Soy estudiante de ingeniería mecatrónica, 
-actualmente curso el décimo semestre, me apasiona aprender sobre programación y automatización, 
-estoy en el programa para ampliar mis habilidades y conocimientos.
+Integrante 4:
 
 Integrante 5: 
 
-Integrante 6: 
+Integrante 6: Juan Esteban Pamplona Mesa Soy estudiante de ingeniería mecatrónica, 
+actualmente curso el décimo semestre, me apasiona aprender sobre programación y automatización, 
+estoy en el programa para ampliar mis habilidades y conocimientos.
