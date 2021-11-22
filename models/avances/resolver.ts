@@ -3,13 +3,15 @@ import { ModeloAvance } from "./avance";
 const resolverAvance = {
   Query: {
     Avances: async (parent, args) => {
-      const avances = await ModeloAvance.find();
+      const avances = await ModeloAvance.find()
+      .populate("proyecto")
+      .populate("creadoPor");
       return avances;
     },
   },
   Mutation: {
     crearAvance: async (parent, args) => {
-      const avanceCreado = await ModeloAvance.create({
+      const avanceCreado = ModeloAvance.create({
         fecha: args.fecha,
         descripcion: args.descripcion,
         observaciones: args.proyecto,

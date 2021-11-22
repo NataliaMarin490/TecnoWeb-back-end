@@ -1,8 +1,6 @@
 import { gql } from "apollo-server-express";
 
 const tiposUsuario = gql`
-  scalar Date
-
   type Usuario {
     _id: ID!
     nombre: String!
@@ -39,7 +37,7 @@ const tiposUsuario = gql`
     ): Usuario
 
     eliminarUsuario(_id: String, correo: String): Usuario # tambien se puede ingresar aparte del ID el correo o nombre o identificacion, etc
-    
+  }
 `;
 
 export { tiposUsuario };
