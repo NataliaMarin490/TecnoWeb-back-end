@@ -8,6 +8,7 @@ import {
 import { ProjectModel } from "./models/projects";
 import { ObjectId } from "mongoose";
 import { ObjectiveModel } from "./models/objectives";
+import { InscriptionModel } from "./models/inscripcion";
 
 //Metodologia one to many #1
 const crearProyectoConObj = async () => {
@@ -16,12 +17,13 @@ const crearProyectoConObj = async () => {
     apellido: "Marin",
     correo: "nm@gmail.com",
     identificacion: "1234",
+    contraseña: "mintic2022",
     rol: Enum_Rol.administrador,
     estado: Enum_EstadoUsuario.autorizado,
   });
 
   const proyectoCreado = await ProjectModel.create({
-    nombre: "Proyecto MINTIC 2022",
+    nombre: "Proyecto 1",
     fechaInicio: new Date(2021 / 12 / 34),
     fechaFin: new Date(2022 / 12 / 34),
     presupuesto: 200000,
@@ -119,6 +121,7 @@ const crearProyectoConObj3 = async () => {
     apellido: "Marin",
     correo: "nm@gmail.com",
     identificacion: "1234",
+    contraseña:"ciclo4MINTIC",
     rol: Enum_Rol.administrador,
     estado: Enum_EstadoUsuario.autorizado,
   });

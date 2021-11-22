@@ -6,6 +6,7 @@ interface User {
   identificacion: string;
   nombre: string;
   apellido: string;
+  contraseña:string;
   rol: Enum_Rol;
   estado: Enum_EstadoUsuario;
 }
@@ -19,12 +20,6 @@ const userSchema = new Schema<User>({
       validator: (email) => {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
       },
-      //   if (!(email.include("@") && email.include("."))) {
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // },
       message: "Formato de correo incorrecto",
     },
   },
@@ -38,6 +33,10 @@ const userSchema = new Schema<User>({
     required: true,
   },
   apellido: {
+    type: String,
+    required: true,
+  },
+  contraseña: {
     type: String,
     required: true,
   },

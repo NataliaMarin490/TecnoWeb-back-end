@@ -15,6 +15,7 @@ const inscriptionSchema = new Schema<Inscripcion>({
   estado: {
     type: String,
     enum: Enum_EstadoInscripcion,
+    default:Enum_EstadoInscripcion.pendiente,
     required: true,
   },
   fechaIngreso: {

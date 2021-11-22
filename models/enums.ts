@@ -10,6 +10,12 @@ enum Enum_EstadoUsuario {
   no_autorizado = "No Autorizado",
 }
 
+enum Enum_CreacionProyecto {
+  aprobado = "Aprobado",
+  no_aprobado = "No aprobado",
+  pendiente = "Pendiente",
+}
+
 enum Enum_EstadoProyecto {
   activo = "Activo",
   inactivo = "Inactivo",
@@ -30,6 +36,7 @@ enum Enum_TipoObjetivo {
 enum Enum_EstadoInscripcion {
   aceptada = "Aceptada",
   rechazada = "Rechazada",
+  pendiente = "Pendiente",
 }
 
 export {
@@ -39,4 +46,5 @@ export {
   Enum_FaseProyecto,
   Enum_TipoObjetivo,
   Enum_EstadoInscripcion,
+  Enum_CreacionProyecto,
 };
