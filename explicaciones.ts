@@ -1,11 +1,11 @@
 import conectarBD from "./db/db";
-import { UserModel } from "./models/user";
+import { UserModel } from "./models/usuario/usuario";
 import {
   Enum_EstadoUsuario,
   Enum_Rol,
   Enum_TipoObjetivo,
-} from "./models/enums";
-import { ProjectModel } from "./models/projects";
+} from "./models/enums/enums";
+import { ProjectModel } from "./models/proyecto/proyecto";
 import { ObjectId } from "mongoose";
 import { ObjectiveModel } from "./models/objectives";
 
@@ -16,8 +16,8 @@ const crearProyectoConObj = async () => {
     apellido: "Marin",
     correo: "nm@gmail.com",
     identificacion: "1234",
-    rol: Enum_Rol.administrador,
-    estado: Enum_EstadoUsuario.autorizado,
+    rol: Enum_Rol.ADMINISTRADOR,
+    estado: Enum_EstadoUsuario.AUTORIZADO,
   });
 
   const proyectoCreado = await ProjectModel.create({
@@ -30,19 +30,19 @@ const crearProyectoConObj = async () => {
 
   const objetivoGeneral = await ObjectiveModel.create({
     descripcion: "OBJ general",
-    tipo: Enum_TipoObjetivo.general,
+    tipo: Enum_TipoObjetivo.GENERAL,
     proyecto: proyectoCreado._id,
   });
 
   const objetivoEspecifico1 = await ObjectiveModel.create({
     descripcion: "OBJ Especifico 1",
-    tipo: Enum_TipoObjetivo.especifico,
+    tipo: Enum_TipoObjetivo.ESPECIFICO,
     proyecto: proyectoCreado._id,
   });
 
   const objetivoEspecifico2 = await ObjectiveModel.create({
     descripcion: "OBJ Especifico 2",
-    tipo: Enum_TipoObjetivo.especifico,
+    tipo: Enum_TipoObjetivo.ESPECIFICO,
     proyecto: proyectoCreado._id,
   });
 
@@ -71,23 +71,23 @@ const crearProyectoConObj2 = async () => {
     apellido: "Marin",
     correo: "nm@gmail.com",
     identificacion: "1234",
-    rol: Enum_Rol.administrador,
-    estado: Enum_EstadoUsuario.autorizado,
+    rol: Enum_Rol.ADMINISTRADOR,
+    estado: Enum_EstadoUsuario.AUTORIZADO,
   });
 
   const objetivoGeneral = await ObjectiveModel.create({
     descripcion: "OBJ general",
-    tipo: Enum_TipoObjetivo.general,
+    tipo: Enum_TipoObjetivo.GENERAL,
   });
 
   const objetivoEspecifico1 = await ObjectiveModel.create({
     descripcion: "OBJ Especifico 1",
-    tipo: Enum_TipoObjetivo.especifico,
+    tipo: Enum_TipoObjetivo.ESPECIFICO,
   });
 
   const objetivoEspecifico2 = await ObjectiveModel.create({
     descripcion: "OBJ Especifico 2",
-    tipo: Enum_TipoObjetivo.especifico,
+    tipo: Enum_TipoObjetivo.ESPECIFICO,
   });
 
   const proyectoCreado = await ProjectModel.create({
@@ -119,8 +119,8 @@ const crearProyectoConObj3 = async () => {
     apellido: "Marin",
     correo: "nm@gmail.com",
     identificacion: "1234",
-    rol: Enum_Rol.administrador,
-    estado: Enum_EstadoUsuario.autorizado,
+    rol: Enum_Rol.ADMINISTRADOR,
+    estado: Enum_EstadoUsuario.AUTORIZADO,
   });
 
   const proyectoCreado = await ProjectModel.create({
@@ -130,9 +130,9 @@ const crearProyectoConObj3 = async () => {
     presupuesto: 200000,
     lider: usuarioInicial._id,
     objetivos: [
-      { descripcion: "OBJ general", tipo: Enum_TipoObjetivo.general },
-      { descripcion: "OBJ especifico1", tipo: Enum_TipoObjetivo.especifico },
-      { descripcion: "OBJ especifico2", tipo: Enum_TipoObjetivo.especifico },
+      { descripcion: "OBJ general", tipo: Enum_TipoObjetivo.GENERAL },
+      { descripcion: "OBJ especifico1", tipo: Enum_TipoObjetivo.ESPECIFICO },
+      { descripcion: "OBJ especifico2", tipo: Enum_TipoObjetivo.ESPECIFICO },
     ],
   });
 };
