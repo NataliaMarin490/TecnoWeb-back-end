@@ -13,11 +13,11 @@ const inscriptionSchema = new Schema({
   },
   fechaIngreso: {
     type: Date,
-    required: true,
+    required: false,
   },
   fechaEgreso: {
     type: Date,
-    required: true,
+    required: false,
   },
   proyecto: {
     type: Schema.Types.ObjectId,
