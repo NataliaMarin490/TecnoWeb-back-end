@@ -55,13 +55,15 @@ module.exports = {
         let courses
         let people
 
+        console.log("Buscando Items", keyword);
+
         try {
             db = await connectDb()
             courses = await db.collection('courses').find({
-                $text: { $search: keyword }
+                $text: {$search :keyword}
             }).toArray()
             people = await db.collection('students').find({
-                $text: { $search: keyword }
+                $text: {$search :keyword}
             }).toArray()
             items = [... courses, ...people]
         } catch (error) {

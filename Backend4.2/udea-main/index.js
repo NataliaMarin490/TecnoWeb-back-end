@@ -10,7 +10,7 @@ const { join } = require('path')
 const resolvers = require ('./lib/resolvers')
 
 const app = express()
-const port = process.env.port || 5006
+const port = process.env.DB_PORT || 5006
 const isDev = process.env.NODE_ENV !== 'production'
 
 const typeDefs = readFileSync(

@@ -9,7 +9,7 @@ const {
   DB_NAME
 } = process.env
 
-const mongoUrl = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`
+const mongoUrl = `mongodb+srv://daardila:784512@cluster0.8yhnh.mongodb.net/udea?retryWrites=true&w=majority`
 let connection
 
 async function connectDB () {
@@ -28,5 +28,6 @@ async function connectDB () {
 
   return connection
 }
+
 
 module.exports = connectDB

@@ -9,11 +9,11 @@ union GlobalSearch = Course | Student | Monitor
 type Course{
     _id: ID!
     title: String!
-    teacher: String
+    teacher: String!
     description: String!
     topic: String @deprecated
     people: [Student]
-    level: Level
+    level: Level!
 }
 
 interface Person{
@@ -51,10 +51,10 @@ type Query {
 
 input CourseInput{
  title: String!
-    teacher: String
+    teacher: String!
     description: String!
-    topic: String
-    level: Level
+    topic: String!
+    level: Level!
 }
 
 input CourseEditInput{
